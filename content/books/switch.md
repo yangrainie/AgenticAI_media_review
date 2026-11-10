@@ -2,7 +2,7 @@
 title: "換命 (Switch)"
 category: "book"
 author_or_director: "葛蘭特·麥肯錫 (Grant McKenzie)"
-rating: 5
+rating: 3
 tags: ["讀書心得", "懸疑驚悚", "人性抉擇", "道德界線"]
 cover_image: "assets/covers/switch.jpg"
 date_added: "2026-11-07"

@@ -2,7 +2,7 @@
 title: "解憂雜貨店 (Miracles of the Namiya General Store)"
 category: "book"
 author_or_director: "東野圭吾 (Keigo Higashino)"
-rating: 5
+rating: 4
 tags: ["讀書心得", "溫暖療癒", "人性善意", "奇幻敘事"]
 cover_image: "assets/covers/namiya-general-store.jpg"
 date_added: "2026-11-07"
