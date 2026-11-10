@@ -24,6 +24,7 @@
 
 ### 檔案目錄架構
 media-vault/
+├── .gitignore              # Git 忽略檔案設定
 ├── AGENTS.md               # 專案 AI 協作與規範指引
 ├── index.html              # 網站主頁面（HTML，已引入 marked.js）
 ├── data.json               # 轉檔輸出檔（由 build_data.py 自動生成）
@@ -58,12 +59,16 @@ media-vault/
 - `color`: (string, 選用) 僅 Podcast 使用，標記主題 Hex Code (如 `#3B82F6` 科技藍、`#10B981` 隨筆綠)
 - `date_added`: (string) 建檔日期，格式為 `YYYY-MM-DD`
 
+### 邊界與限制 (Constraints)
+- **檔名限制**：圖片與 Markdown 檔名一律使用小寫英文與連字號/底線（例如 `switch.md`），**嚴禁使用中文或空白**。
+- **欄位邊界**：禁止 AI 自創非標準 YAML 欄位，若有缺失欄位一律給予標準預設值。
+
 ### 內文結構規範
 1. **首行**：使用引用語法 `> 「經典金句或印象最深刻的一句話」`
 2. **區塊**：必須包含 `## 核心摘要` 與 `## 觀後心得與推薦` 兩個 H2 標題區塊（Podcast 類別可彈性替換為 `## 重點筆記與觀點`）
 
 ### 範例：書籍與影視 (`book` / `movie`)
-```markdown
+
 ---
 title: "作品名稱"
 category: "book"
@@ -84,9 +89,6 @@ date_added: "2026-11-06"
 
 ---
 
-#### 第 5 節：工作流程 (SOP)
-
-```markdown
 ## 5. 新增內容的工作流程與 AI 協作規範 (Workflow SOP)
 
 ### 步驟 A：Gemini 內容生成 SOP
@@ -96,9 +98,24 @@ date_added: "2026-11-06"
 
 ### 步驟 B：圖片資產放置 (Asset Management)
 1. **放置資料夾**：若為 `book` 或 `movie`，將下載好的封面圖片放置於 `assets/covers/` 資料夾內。
-2. **檔名對齊**：確認圖片檔名與 `.md` 檔內 `cover_image` 的路徑完全一致。
+2. **檔名對齊**：確認圖片檔名與 `.md` 檔內 `cover_image` 的路徑完全一致（例如 `assets/covers/barbie.jpg`）。
+3. **規格建議**：建議採用 2:3 直式比例圖片檔，防止前台卡片顯示變形。
 
 ### 步驟 C：本地檔案建立與轉檔
 1. 在 VS Code 的 `content/books/`、`content/movies/` 或 `content/podcasts/` 下建立對應 `.md` 檔案並貼上內容。
 2. 開啟終端機執行 `python scripts/build_data.py` 更新 `data.json`。
 3. 使用 Live Server 預覽 `index.html` 驗證卡片與彈窗顯示。
+
+---
+
+## 6. 部署與版本控制指引 (Deployment & Version Control)
+
+本專案透過 GitHub Pages 進行公開 Hosting 自動發布。
+
+### 內容更新與上線三連指令
+每次新增或修改筆記、並執行 `python scripts/build_data.py` 生成最新 `data.json` 後，請在終端機依序執行以下命令完成同步與線上發布：
+
+```bash
+git add .
+git commit -m "content: update notes and data.json"
+git push
