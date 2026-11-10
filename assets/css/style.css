@@ -1,0 +1,398 @@
+/* --------------------------------------------------
+   日系暖灰雜誌風格 (Minimal Warm Light Editorial)
+-------------------------------------------------- */
+
+:root {
+  --bg-color: #e8e6e1;          /* 柔和麥芽暖灰底色 */
+  --card-bg: #fcfbfa;          /* 明亮細緻白卡片 */
+  --text-primary: #2b2927;     /* 濃郁深石灰 */
+  --text-secondary: #706b65;   /* 柔和文字灰 */
+  --accent-color: #3b3734;     /* 沉穩邊框/強調色 */
+  --border-color: #d6d2cb;     /* 極細微邊框灰 */
+  --tag-bg: #efede8;           /* 標籤淡暖灰底 */
+  --badge-book: #4a4642;       /* 書籍標籤色 */
+  --badge-movie: #66615c;      /* 影視標籤色 */
+  --badge-podcast: #87817a;    /* Podcast 標籤色 */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Noto Serif TC", "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  line-height: 1.8;
+  letter-spacing: 0.03em;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 頂部導覽欄 */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem 4rem;
+  background-color: transparent;
+  border-bottom: 1px solid var(--border-color);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+}
+
+.search-bar input {
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.85rem;
+  width: 220px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.search-bar input:focus {
+  border-color: var(--accent-color);
+  width: 260px;
+}
+
+/* 主要容器與版型 */
+.container {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 4rem;
+}
+
+/* 分類篩選按鈕 */
+.filter-tabs {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.75rem;
+}
+
+.tab-btn {
+  padding: 0.4rem 0.2rem;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.tab-btn:hover {
+  color: var(--text-primary);
+}
+
+.tab-btn.active {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.tab-btn.active::after {
+  content: "";
+  position: absolute;
+  bottom: -0.85rem;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--text-primary);
+}
+
+/* 網格佈局 */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2.5rem;
+}
+
+/* 日系雜誌質感卡片 */
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(43, 41, 39, 0.06);
+}
+
+.badge {
+  display: inline-block;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 2px;
+  background-color: var(--tag-bg);
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  align-self: flex-start;
+  text-transform: uppercase;
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 0.4rem;
+  color: var(--text-primary);
+}
+
+.author {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.8rem;
+}
+
+.rating {
+  color: #87817a;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.1em;
+}
+
+/* 經典引述區塊 */
+.quote {
+  font-style: normal;
+  font-size: 0.92rem;
+  color: #3b3734;
+  line-height: 1.7;
+  margin: 1rem 0 1.5rem 0;
+  padding-left: 1rem;
+  border-left: 2px solid var(--text-primary);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: auto;
+}
+
+.tags span {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  background-color: var(--tag-bg);
+  padding: 0.2rem 0.5rem;
+  border-radius: 2px;
+}
+
+/* 彈窗樣式 (Modal) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(43, 41, 39, 0.7);
+  backdrop-filter: blur(4px);
+  overflow-y: auto;
+}
+
+.modal-content {
+  background-color: var(--card-bg);
+  margin: 5% auto;
+  padding: 3rem;
+  border: 1px solid var(--border-color);
+  width: 80%;
+  max-width: 900px;
+  position: relative;
+  border-radius: 2px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+.close-btn {
+  position: absolute;
+  right: 1.5rem;
+  top: 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--text-secondary);
+}
+
+.modal-header {
+  display: flex;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 2rem;
+}
+
+.modal-cover {
+  width: 200px;
+  height: auto;
+  object-fit: cover;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.modal-info h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.modal-info p {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.modal-quote {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--text-primary);
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background-color: var(--tag-bg);
+  border-left: 4px solid var(--accent-color);
+  line-height: 1.6;
+}
+
+.modal-section {
+  margin-top: 2rem;
+}
+
+.modal-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  display: inline-block;
+  padding-bottom: 0.2rem;
+}
+
+.modal-section p {
+  white-space: pre-wrap; /* 保留換行 */
+}
+
+/* 讓圖片卡片統一比例 */
+.card-cover {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border-color);
+}
+
+/* Podcast 無封面時的佔位卡片樣式 */
+.card-cover-placeholder {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #555;
+    background-color: #f5f5f5;
+}
+
+/* 個人保養主題（淺粉紅）配色 */
+.card-cover-placeholder.skincare,
+.card.skincare {
+    background-color: #fff0f3 !important; /* 淺粉紅背景 */
+    border-color: #ffccd5;
+}
+
+.category-tag.skincare {
+    background-color: #ffb3c1; /* 淺粉紅標籤 */
+    color: #590d22;
+}
+
+/* 2. 個人成長（淺藍色） */
+.card-cover-placeholder.mindset,
+.card.mindset {
+    background-color: #eef6ff !important; /* 柔和淺藍背景 */
+    border-color: #bee3f8;
+}
+.category-tag.mindset {
+    background-color: #90cdf4; /* 淺藍色標籤 */
+    color: #1a365d;
+}
+.modal-cover-placeholder.mindset {
+    background-color: #eef6ff;
+    color: #2b6cb0;
+}
+
+/* 3. 科技類（淺綠色） */
+.card-cover-placeholder.tech,
+.card.tech {
+    background-color: #f0fff4 !important;
+    border-color: #c6f6d5;
+}
+.category-tag.tech {
+    background-color: #9ae6b4;
+    color: #22543d;
+}
+.modal-cover-placeholder.tech {
+    background-color: #f0fff4;
+    color: #2f855a;
+}
+
+/* 4. 理財投資（淺紅色） */
+.card-cover-placeholder.finance,
+.card.finance {
+    background-color: #fff5f5 !important;
+    border-color: #fed7d7;
+}
+.category-tag.finance {
+    background-color: #feb2b2;
+    color: #742a2a;
+}
+.modal-cover-placeholder.finance {
+    background-color: #fff5f5;
+    color: #c53030;
+}
+
+/* 5. 心靈成長（淺紫色） */
+.card-cover-placeholder.spiritual,
+.card.spiritual {
+    background-color: #faf5ff !important;
+    border-color: #e9d8fd;
+}
+.category-tag.spiritual {
+    background-color: #d6bcfa;
+    color: #441239;
+}
+.modal-cover-placeholder.spiritual {
+    background-color: #faf5ff;
+    color: #6b46c1;
+}
+
+/* 6. 運動跑步（淺黃色） */
+.card-cover-placeholder.running,
+.card.running {
+    background-color: #fffff0 !important;
+    border-color: #fefcbf;
+}
+.category-tag.running {
+    background-color: #faf089;
+    color: #744210;
+}
+.modal-cover-placeholder.running {
+    background-color: #fffff0;
+    color: #d69e2e;
+}

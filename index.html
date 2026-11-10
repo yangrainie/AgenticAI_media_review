@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>🎞️ 一頁一幕｜收藏看過的故事，也收藏當下的自己。</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- 頂部導覽與搜尋欄 -->
+  <header class="navbar">
+
+    <div class="logo">🎞️ 一頁一幕｜收藏看過的故事，也收藏當下的自己。</div>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="搜尋標題、作者或標籤...">
+    </div>
+  </header>
+
+  <!-- 分類篩選按鈕 -->
+  <main class="container">
+        <div class="filter-tabs">
+      <button class="tab-btn filter-btn active" data-category="all">全部作品</button>
+      <button class="tab-btn filter-btn" data-category="book">書籍筆記</button>
+      <button class="tab-btn filter-btn" data-category="movie">影視心得</button>
+      <button class="tab-btn filter-btn" data-category="podcast">Podcast</button>
+    </div>
+
+        <!-- 筆記卡片展示區 -->
+    <div class="cards-grid" id="mediaGrid">
+      <!-- 卡片由 JS 自動生成 -->
+    </div>
+  </main>
+
+  <!-- 彈窗詳情 (Modal) -->
+  <div id="detailModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <div id="modalBody">
+        <!-- 詳情內容由 JS 生成 -->
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
