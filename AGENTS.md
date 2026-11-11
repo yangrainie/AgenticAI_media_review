@@ -52,7 +52,7 @@ media-vault/
 - `category`: (string) 可選值: `book` | `movie` | `podcast`
 - `author_or_director`: (string) 作者、導演或 Podcast 節目名稱/講者
 - `rating`: (number) 評分範圍 1 - 5
-- `tags`: (array) 主題標籤陣列（建議優先選用現有標籤，如 `["科技", "文學", "心理學", "個人成長", "動漫", "影視"]`）
+- `tags`: (array) 主題標籤陣列（建議優先選用現有標籤，如 `["科技", "文學", "心理學", "個人成長", "動漫", "影視", "理財", "運動", "旅遊"]`）
 - `cover_image`: (string) 封面圖片路徑
   - `book` / `movie`: 必須指定為 `assets/covers/圖片檔名.jpg`
   - `podcast`: 預設填寫空字串 `""`
@@ -117,5 +117,5 @@ date_added: "2026-11-06"
 
 ```bash
 git add .
-git commit -m "content: update notes and data.json"
+git commit -m "content: Document your changes"
 git push
